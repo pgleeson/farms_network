@@ -43,17 +43,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
+        # Install extra libraries for scripts
+        pip install numpy seaborn cython 
+        pip install git+https://gitlab.com/farmsim/farms_pylog.git
+
+        python -m pip list
 
     - name: Run installation
       run: |
         python -m pip install . --verbose
         python -m pip list
 
-    - name: Install extra libraries for scripts
-      run: |
-        pip install networkx seaborn
-        pip install git+https://gitlab.com/farmsim/farms_pylog.git
-        python -m pip list
+    - name: 
 
     - name: Test scripts
       run: |
